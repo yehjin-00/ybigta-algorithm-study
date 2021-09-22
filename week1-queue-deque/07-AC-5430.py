@@ -4,14 +4,12 @@
 
 import sys
 
-input = sys.stdin.readline
-
-n = int(input())
+n = int(sys.stdin.readline().rstrip())
 
 for i in range(n):
-	cmds = input()
-	size = int(input())
-	lst = input()
+	cmds = sys.stdin.readline().rstrip()
+	size = int(sys.stdin.readline().rstrip())
+	lst = sys.stdin.readline().rstrip()
 	lst = lst[1:-1].split(',')
 
 	start = 0
