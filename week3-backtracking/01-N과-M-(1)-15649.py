@@ -17,7 +17,7 @@ def combi(lst, save, n):
 			s.append(p)
 			combi(l, s, n-1)
 
-n, m = map(int, input().split()
+n, m = map(int, input().split())
 
 lst = [i+1 for i in range(n)]
 save = []
