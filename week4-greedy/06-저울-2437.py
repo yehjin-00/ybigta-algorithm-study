@@ -95,5 +95,3 @@ for i in range(1, sum(lst)//2 + 1):
 		print(i)
 		break
 
-
-
