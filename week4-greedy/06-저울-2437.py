@@ -95,3 +95,51 @@ for i in range(1, sum(lst)//2 + 1):
 		print(i)
 		break
 
+# 5차 시도
+def make(lst, target):
+	if target in lst: return True
+	if len(lst) < 2: return False
+	if make(lst[1:], target-lst[0]): return True
+	if make(lst[1:], target): return True
+	return False
+
+N = int(input())
+lst = sorted(list(map(int, input().split())))
+
+small = 0
+for i in range(len(lst)):
+	if lst[i] > 1:
+		small = i
+		break
+
+for i in range(1, sum(lst)//2 + 1):
+	for j in range(small, len(lst)):
+		if lst[j] > i:
+			small = j
+			break
+
+	small_lst = lst[:small]
+
+	if i in lst:  continue
+	elif sum(small_lst)-i >= 0 and sum(small_lst)-i <= i: continue
+	elif sum(small_lst) - i < 0: 
+		print(i)
+		break
+	elif not make(small_lst, i): 
+		print(i)
+		break
+
+# 6차 시도
+# 인터넷의 도움을 받음,,
+# n개의 추로 m까지의 숫자를 만들 수 있다면, k 무게의 추를 추가하면 m+k까지 만들 수 있다.
+# 단, k가 m+1보다 커서는 안된다.
+N = int(input())
+lst = sorted(list(map(int, input().split())))
+check = 0
+for i in lst:
+	if i > check+1:
+		break
+	else:
+		check += i       
+
+print(check+1)
